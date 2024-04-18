@@ -4,6 +4,7 @@
 , wrapCosmicAppsHook
 , libinput
 , mesa
+, pixman
 , pkg-config
 , seatd
 , stdenv
@@ -16,13 +17,13 @@
 
 rustPlatform.buildRustPackage {
   pname = "cosmic-comp";
-  version = "0-unstable-2024-03-27";
+  version = "0-unstable-2024-04-16";
 
   src = fetchFromGitHub {
     owner = "pop-os";
     repo = "cosmic-comp";
-    rev = "daf669e656c6ae099894c500fc988b05774f2f53";
-    hash = "sha256-UpYEyQtfwCzpdQFB6N+30bqCcp/VBthzaCO1qLfsfg8=";
+    rev = "5d5a51069197e5f044ab1ce116b342a679b3aadd";
+    hash = "sha256-pEWiDQYJnB6FFr29Jw20ITfKkg8xb0LAVISyHKvblo8=";
   };
 
   cargoLock = {
@@ -36,7 +37,7 @@ rustPlatform.buildRustPackage {
       "d3d12-0.19.0" = "sha256-usrxQXWLGJDjmIdw1LBXtBvX+CchZDvE8fHC0LjvhD4=";
       "glyphon-0.5.0" = "sha256-j1HrbEpUBqazWqNfJhpyjWuxYAxkvbXzRKeSouUoPWg=";
       "id_tree-1.8.0" = "sha256-uKdKHRfPGt3vagOjhnri3aYY5ar7O3rp2/ivTfM2jT0=";
-      "smithay-0.3.0" = "sha256-bWan2DCyMvEC8ZQPwM+XpuOGkOZ/RdDV+LmRCN8UAuc=";
+      "smithay-0.3.0" = "sha256-WllpGMhRygRc5LUvjdQFCC8ISQld8qwOjPTniSjU3uU=";
       "smithay-clipboard-0.8.0" = "sha256-OZOGbdzkgRIeDFrAENXE7g62eQTs60Je6lYVr0WudlE=";
       "smithay-egui-0.1.0" = "sha256-FcSoKCwYk3okwQURiQlDUcfk9m/Ne6pSblGAzHDaVHg=";
       "softbuffer-0.4.1" = "sha256-a0bUFz6O8CWRweNt/OxTvflnPYwO5nm6vsyc/WcXyNg=";
@@ -50,6 +51,7 @@ rustPlatform.buildRustPackage {
   buildInputs = [
     libinput
     mesa
+    pixman
     seatd
     udev
   ] ++ lib.optional useSystemd systemd;

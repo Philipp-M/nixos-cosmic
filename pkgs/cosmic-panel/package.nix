@@ -3,20 +3,19 @@
 , rustPlatform
 , wrapCosmicAppsHook
 , just
-, pkg-config
 , stdenv
 , util-linux
 }:
 
 rustPlatform.buildRustPackage {
   pname = "cosmic-panel";
-  version = "0-unstable-2024-03-27";
+  version = "0-unstable-2024-04-15";
 
   src = fetchFromGitHub {
     owner = "pop-os";
     repo = "cosmic-panel";
-    rev = "bab34ebb0faf1706ca4aa74446df59e6556889d6";
-    sha256 = "sha256-8ui4TZ/dss0y3iTdwHhoSUHXpr7ScJsoPo4eFWyhAr8=";
+    rev = "585bdafff08f3da9b5234df4f964af4698f120e0";
+    sha256 = "sha256-PxJY7OUs4UutQ/fKTYNd7kcOQjxtqT3D3ir9+bTMEwg=";
   };
 
   cargoLock = {
@@ -33,7 +32,7 @@ rustPlatform.buildRustPackage {
     };
   };
 
-  nativeBuildInputs = [ wrapCosmicAppsHook just pkg-config util-linux ];
+  nativeBuildInputs = [ wrapCosmicAppsHook just util-linux ];
 
   dontUseJustBuild = true;
 

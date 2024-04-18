@@ -83,8 +83,13 @@ in
     xdg.icons.enable = true;
 
     # optional features
-    hardware.pulseaudio.enable = lib.mkDefault true;
     hardware.bluetooth.enable = lib.mkDefault true;
+    services.acpid.enable = lib.mkDefault true;
+    services.pipewire = {
+      enable = lib.mkDefault true;
+      alsa.enable = lib.mkDefault true;
+      pulse.enable = lib.mkDefault true;
+    };
 
     # general graphical session features
     programs.dconf.enable = lib.mkDefault true;
@@ -92,10 +97,11 @@ in
     # required dbus services
     services.accounts-daemon.enable = true;
     services.upower.enable = true;
+    services.power-profiles-daemon.enable = lib.mkDefault (!config.hardware.system76.power-daemon.enable);
     security.polkit.enable = true;
 
     # session packages
-    services.xserver.displayManager.sessionPackages = with pkgs; [ cosmic-session ];
+    services.displayManager.sessionPackages = with pkgs; [ cosmic-session ];
     systemd.packages = with pkgs; [ cosmic-session ];
 
     # required for screen locker

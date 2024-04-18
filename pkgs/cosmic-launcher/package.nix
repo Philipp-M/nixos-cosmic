@@ -6,19 +6,18 @@
 , desktop-file-utils
 , intltool
 , just
-, pkg-config
 , stdenv
 }:
 
 rustPlatform.buildRustPackage {
   pname = "cosmic-launcher";
-  version = "0-unstable-2024-03-27";
+  version = "0-unstable-2024-04-02";
 
   src = fetchFromGitHub {
     owner = "pop-os";
     repo = "cosmic-launcher";
-    rev = "003f2d7afde6b20ba3a08cd31426fcee105b0144";
-    sha256 = "sha256-uLH9ZArURIXcAt4aMzSZpBYwcK1/RoPNG9FCTRDJrok=";
+    rev = "f6b9df7ad95a554d51c4ca5cbd573a79813fa4b8";
+    sha256 = "sha256-eIbYICsqp2RLJs0cHyWADIZWXFOR0iH4IeE7y7j9Yk4=";
   };
 
   cargoLock = {
@@ -42,8 +41,7 @@ rustPlatform.buildRustPackage {
     };
   };
 
-  nativeBuildInputs = [ wrapCosmicAppsHook just pkg-config ];
-  buildInputs = [ appstream-glib desktop-file-utils intltool ];
+  nativeBuildInputs = [ wrapCosmicAppsHook just ];
 
   dontUseJustBuild = true;
 
