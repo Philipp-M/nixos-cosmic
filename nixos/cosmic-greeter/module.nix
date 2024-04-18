@@ -1,18 +1,18 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.services.displayManager.cosmic-greeter;
+  cfg = config.services.xserver.displayManager.cosmic-greeter;
 in
 {
   meta.maintainers = with lib.maintainers; [ nyanbinary lilyinstarlight ];
 
-  options.services.displayManager.cosmic-greeter = {
+  options.services.xserver.displayManager.cosmic-greeter = {
     enable = lib.mkEnableOption (lib.mdDoc "COSMIC greeter");
   };
 
   config = lib.mkIf cfg.enable {
     # TODO: remove when NixOS/nixpkgs#303674 is merged and on nixos-unstable
-    services.displayManager.enable = true;
+    # services.xserver.displayManager.enable = true;
 
     # greetd config
     services.greetd = {

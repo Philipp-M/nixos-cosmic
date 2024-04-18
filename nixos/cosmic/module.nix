@@ -101,7 +101,7 @@ in
     security.polkit.enable = true;
 
     # session packages
-    services.displayManager.sessionPackages = with pkgs; [ cosmic-session ];
+    services.xserver.displayManager.sessionPackages = with pkgs; [ cosmic-session ];
     systemd.packages = with pkgs; [ cosmic-session ];
 
     # required for screen locker
