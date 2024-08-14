@@ -24,14 +24,14 @@ rustPlatform.buildRustPackage {
   version = "1.0.0-alpha.6-unstable-2025-04-04";
 
   src = fetchFromGitHub {
-    owner = "pop-os";
+    owner = "Philipp-M";
     repo = "cosmic-comp";
-    rev = "99bbd10168aed50a24db730cf20eb778e072c5e4";
-    hash = "sha256-Xow6kUtWQGFcIIXgiYQlfm5b9Ibqg5IxD+kmVRIbBvE=";
+    rev = "85cbd7d4bc4cae3d89e822dc3d67ff0d270d6778";
+    hash = "sha256-8Sf5I+lHaKdsdsymmAK9Diya6hIEgtWR3zAMENKwSOc=";
   };
 
   useFetchCargoVendor = true;
-  cargoHash = "sha256-8/LBIGQjrgofpQ27COpm0C0Pe4bOZNqNpGcV/IYQLLc=";
+  cargoHash = "sha256-NTOLMLrfCejWHYYBGq8PpYZoDyKrINkNUowNOIk3Fe0=";
 
   separateDebugInfo = true;
 
