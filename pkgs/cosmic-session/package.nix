@@ -44,11 +44,11 @@ rustPlatform.buildRustPackage {
     "prefix"
     (placeholder "out")
     "--set"
+    "cosmic_dconf_profile"
+    "${placeholder "out"}/etc/dconf/profile/cosmic"
+    "--set"
     "cargo-target-dir"
     "target/${stdenv.hostPlatform.rust.cargoShortTarget}"
-    "--set"
-    "cosmic_dconf_profile"
-    "cosmic"
   ];
 
   env.XDP_COSMIC = lib.getExe xdg-desktop-portal-cosmic;
