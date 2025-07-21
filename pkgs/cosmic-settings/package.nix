@@ -13,6 +13,7 @@
   libinput,
   pipewire,
   pkg-config,
+  libxkbcommon,
   pulseaudio,
   udev,
   util-linux,
@@ -50,6 +51,7 @@ rustPlatform.buildRustPackage {
   ];
   buildInputs = [
     expat
+    libxkbcommon
     fontconfig
     freetype
     libinput
